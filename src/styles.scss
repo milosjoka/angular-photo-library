@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+// abstract
+@import "assets/sass/abstract/variables";
+
 // base
 @import "assets/sass/base/reset";
 @import "assets/sass/base/typography";
+@import "assets/sass/base/utilities";
 
 // layout
-@import "assets/sass/layout/grid";
-@import "assets/sass/layout/header";
+@import "assets/sass/layout/layout";
 
 // pages
 @import "assets/sass/pages/photos";

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {PhotoLibraryModule} from "./features/photo-library/photo-library.module";
 import {WildcardRoutingModule} from "./wildcard-routing.module";
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,6 +16,7 @@ import {WildcardRoutingModule} from "./wildcard-routing.module";
     AppRoutingModule,
     NoopAnimationsModule,
     PhotoLibraryModule,
+    MatButtonModule,
     WildcardRoutingModule
   ],
   providers: [],

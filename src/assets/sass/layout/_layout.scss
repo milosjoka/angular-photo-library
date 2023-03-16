@@ -1,0 +1,33 @@
+.container {
+  max-width: $container-max-width;
+  min-height: $container-min-height;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 1.4rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24rem;
+    height: 5rem;
+  }
+}
+
+.content {
+  display: flex;
+  border: 1px solid red;
+}
