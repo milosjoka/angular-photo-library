@@ -7,16 +7,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {PhotoLibraryModule} from "./features/photo-library/photo-library.module";
 import {WildcardRoutingModule} from "./wildcard-routing.module";
 import {MatButtonModule} from '@angular/material/button';
-import { TopBarComponent } from './features/navigation/components/top-bar/top-bar.component';
+import {NavigationModule} from "./features/navigation/navigation.module";
+import {SpinnerModule} from "./features/spinner/spinner.module";
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    NavigationModule,
+    SpinnerModule,
     PhotoLibraryModule,
     MatButtonModule,
     WildcardRoutingModule

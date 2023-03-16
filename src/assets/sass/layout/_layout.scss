@@ -2,6 +2,8 @@
   max-width: $container-max-width;
   min-height: $container-min-height;
   margin: 0 auto;
+  padding: 2rem 2rem;
+  border: 1px solid red;
 }
 
 .header {
@@ -10,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 }
 
 
@@ -30,4 +33,5 @@
 .content {
   display: flex;
   border: 1px solid red;
+  padding: 2rem 2rem;
 }
