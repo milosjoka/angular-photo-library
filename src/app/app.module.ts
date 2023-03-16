@@ -7,9 +7,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {PhotoLibraryModule} from "./features/photo-library/photo-library.module";
 import {WildcardRoutingModule} from "./wildcard-routing.module";
 import {MatButtonModule} from '@angular/material/button';
+import { TopBarComponent } from './features/navigation/components/top-bar/top-bar.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,5 @@
 <div class="container">
-  <header class="header">
-    <nav class="user-nav">
-      <div class="user-nav__item">
-        <a class="u-btn-size-md" mat-raised-button color="primary"
-           routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="u-active-link"
-        >
-        Photos</a>
-      </div>
-      <div class="user-nav__item">
-        <a class="u-btn-size-md" mat-raised-button color="primary"
-           routerLink="/favorites"
-           routerLinkActive="u-active-link"
-        >Favorites</a>
-      </div>
-    </nav>
-  </header>
+  <app-top-bar></app-top-bar>
   <div class="content">
     <router-outlet></router-outlet>
   </div>
