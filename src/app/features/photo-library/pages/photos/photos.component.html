@@ -1,10 +1,4 @@
 <section class="section-photos">
-  <app-photo></app-photo>
-  <app-photo></app-photo>
-  <app-photo></app-photo>
-  <app-photo></app-photo>
-  <app-photo></app-photo>
-  <app-photo></app-photo>
-  <app-photo></app-photo>
+  <app-photo *ngFor="let item of photoList" [photo]="item"></app-photo>
 </section>
 

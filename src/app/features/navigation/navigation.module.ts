@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {TopBarComponent} from "./components/top-bar/top-bar.component";
-import {RouterLinkActive} from "@angular/router";
+import {RouterLinkActive, RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -10,6 +10,7 @@ import {RouterLinkActive} from "@angular/router";
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatButtonModule,
     RouterLinkActive
   ],

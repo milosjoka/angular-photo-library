@@ -1,6 +1,6 @@
-<mat-card class="photo-card">
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+<mat-card class="photo-card" *ngIf="photo?.download_url">
+  <img mat-card-image [src]="photo.download_url" alt="">
   <mat-card-actions>
-    <button mat-button>Add to favorites</button>
+    <button mat-button (click)="onAddFavorite(photo)">Add to favorites</button>
   </mat-card-actions>
 </mat-card>

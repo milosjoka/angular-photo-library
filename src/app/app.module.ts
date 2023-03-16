@@ -9,12 +9,14 @@ import {WildcardRoutingModule} from "./wildcard-routing.module";
 import {MatButtonModule} from '@angular/material/button';
 import {NavigationModule} from "./features/navigation/navigation.module";
 import {SpinnerModule} from "./features/spinner/spinner.module";
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NoopAnimationsModule,
     NavigationModule,
