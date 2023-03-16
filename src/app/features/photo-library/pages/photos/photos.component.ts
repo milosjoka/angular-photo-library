@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SpinnerService} from "../../../spinner/services/spinner.service";
-import {PhotosService} from "../../services/photos.service";
+import {PhotoLibraryService} from "../../services/photo-library.service";
 import {Subject, takeUntil} from "rxjs";
 import {PhotoModel} from "../../data-models/photo.model";
 
@@ -15,7 +15,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
 
   constructor(
     private spinnerService: SpinnerService,
-    private photosService: PhotosService
+    private photoLibraryService: PhotoLibraryService
   ) {
   }
 
@@ -23,18 +23,18 @@ export class PhotosComponent implements OnInit, OnDestroy {
     this.initPhotoList();
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
-  }
-
   private initPhotoList(): void {
-    this.photosService.getPhotoList()
+    this.photoLibraryService.getPhotoList()
       .pipe(
         takeUntil(this.destroy$)
       )
       .subscribe(res => {
         this.photoList = res;
       })
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }

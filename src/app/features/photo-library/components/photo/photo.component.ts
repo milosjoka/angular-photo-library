@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PhotoModel} from "../../data-models/photo.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {PhotoLibraryService} from "../../services/photo-library.service";
 
 @Component({
   selector: 'app-photo',
@@ -9,11 +11,18 @@ import {PhotoModel} from "../../data-models/photo.model";
 export class PhotoComponent implements OnInit{
   @Input() photo!: PhotoModel;
 
-  constructor() {
+  constructor(
+    private snackBar: MatSnackBar,
+    private photoLibraryService: PhotoLibraryService
+
+  ) {
   }
 
-  onAddFavorite(photo: PhotoModel |undefined) {
-
+  onAddFavorite(photo: PhotoModel) {
+    this.photoLibraryService.addPhotoToFavorites(photo);
+    this.snackBar.open('Added to Favorites', 'Close', {
+      duration: 2000
+    });
   }
 
   ngOnInit(): void {
