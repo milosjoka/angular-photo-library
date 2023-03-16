@@ -7,11 +7,13 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PhotoComponent } from './components/photo/photo.component';
 
 @NgModule({
   declarations: [
     PhotosComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    PhotoComponent
   ],
   imports: [
     CommonModule,
