@@ -31,7 +31,6 @@ export class PhotoComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(this.photo);
   }
 
   onRemoveFromFavorites(photo: PhotoModel) {
