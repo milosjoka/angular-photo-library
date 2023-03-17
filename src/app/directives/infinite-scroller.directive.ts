@@ -26,7 +26,7 @@ export class InfiniteScrollerDirective implements AfterViewInit {
 
   @Input() immediateCallback: boolean = false;
 
-  @Input() scrollPercent: number = 70;
+  @Input() scrollPercent: number = 85;
 
   constructor(private elm: ElementRef) {
   }

@@ -11,7 +11,7 @@ import { PhotoComponent } from './components/photo/photo.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgOptimizedImage } from '@angular/common';
 import { SinglePhotoComponent } from './pages/single-photo/single-photo.component';
-import {InfiniteScrollerDirective} from "../../infinite-scroller.directive";
+import {InfiniteScrollerDirective} from "../../directives/infinite-scroller.directive";
 @NgModule({
   declarations: [
     PhotosComponent,
