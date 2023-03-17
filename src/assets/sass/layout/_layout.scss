@@ -3,7 +3,8 @@
   min-height: $container-min-height;
   margin: 0 auto;
   padding: 2rem 2rem;
-  border: 1px solid red;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0 43px 2px;
+  background-color: rgb(243, 176, 43);
 }
 
 .header {
@@ -12,7 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 }
 
 
@@ -47,6 +47,5 @@
 
 .content {
   display: flex;
-  border: 1px solid red;
   padding: 2rem 2rem;
 }
