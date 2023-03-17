@@ -1,4 +1,8 @@
 <section class="section-photos">
-  <app-photo *ngFor="let item of photoList" [photo]="item"></app-photo>
+  <app-photo *ngFor="let item of photoList"
+             [photo]="item"
+             [isVisibleBtnAddToFavorites]="true"
+  >
+  </app-photo>
 </section>
 

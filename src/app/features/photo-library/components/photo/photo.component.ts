@@ -10,6 +10,8 @@ import {PhotoLibraryService} from "../../services/photo-library.service";
 })
 export class PhotoComponent implements OnInit{
   @Input() photo!: PhotoModel;
+  @Input() isVisibleBtnAddToFavorites: boolean = false;
+  @Input() isVisibleBtnRemoveFromFavorites: boolean = false;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -18,8 +20,8 @@ export class PhotoComponent implements OnInit{
   ) {
   }
 
-  onAddFavorite(photo: PhotoModel) {
-    this.photoLibraryService.addPhotoToFavorites(photo);
+  onAddToFavorites(photo: PhotoModel) {
+    this.photoLibraryService.addPhotoToFavoritesAtLocalStorage(photo);
     this.snackBar.open('Added to Favorites', 'Close', {
       duration: 2000
     });
@@ -27,5 +29,9 @@ export class PhotoComponent implements OnInit{
 
   ngOnInit(): void {
     console.log(this.photo);
+  }
+
+  onRemoveFromFavorites(photo: PhotoModel) {
+    this.photoLibraryService.removePhotoFromFavoritesAtLocalStorage(photo);
   }
 }
