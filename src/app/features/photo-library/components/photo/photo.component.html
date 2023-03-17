@@ -1,5 +1,7 @@
 <mat-card class="photo-card" *ngIf="photo?.download_url">
-  <img mat-card-image [ngSrc]="photo.download_url" width="300" height="240" alt="">
+  <img mat-card-image [ngSrc]="photo.download_url" width="300" height="240" alt=""
+       (click)="showPhotoDetails()"
+  >
   <mat-card-actions>
     <button mat-button
             *ngIf="isVisibleBtnAddToFavorites"

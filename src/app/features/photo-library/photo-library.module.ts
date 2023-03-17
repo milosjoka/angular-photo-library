@@ -10,11 +10,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PhotoComponent } from './components/photo/photo.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgOptimizedImage } from '@angular/common';
+import { SinglePhotoComponent } from './pages/single-photo/single-photo.component';
 @NgModule({
   declarations: [
     PhotosComponent,
     FavoritesComponent,
-    PhotoComponent
+    PhotoComponent,
+    SinglePhotoComponent
   ],
   imports: [
     CommonModule,
