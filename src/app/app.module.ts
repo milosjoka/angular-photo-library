@@ -10,9 +10,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {NavigationModule} from "./features/navigation/navigation.module";
 import {SpinnerModule} from "./features/spinner/spinner.module";
 import {HttpClientModule} from "@angular/common/http";
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
     WildcardRoutingModule
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

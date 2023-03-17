@@ -11,21 +11,23 @@ import { PhotoComponent } from './components/photo/photo.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgOptimizedImage } from '@angular/common';
 import { SinglePhotoComponent } from './pages/single-photo/single-photo.component';
+import {InfiniteScrollerDirective} from "../../infinite-scroller.directive";
 @NgModule({
   declarations: [
     PhotosComponent,
     FavoritesComponent,
     PhotoComponent,
-    SinglePhotoComponent
+    SinglePhotoComponent,
+    InfiniteScrollerDirective
   ],
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    MatButtonModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    PhotoLibraryRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        NgOptimizedImage,
+        MatButtonModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
+        PhotoLibraryRoutingModule,
+    ]
 })
 export class PhotoLibraryModule { }

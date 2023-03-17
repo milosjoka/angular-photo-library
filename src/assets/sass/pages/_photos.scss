@@ -1,6 +1,10 @@
 .section-photos {
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 1rem;
   display: grid;
   grid-template-columns: auto auto auto;
-  column-gap: 6rem;
+  column-gap: 5rem;
   row-gap: 2rem ;
 }

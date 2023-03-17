@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SpinnerService} from "../../../spinner/services/spinner.service";
 import {PhotoLibraryService} from "../../services/photo-library.service";
-import {Subject, takeUntil} from "rxjs";
+import {Observable, Subject, takeUntil, tap} from "rxjs";
 import {PhotoModel} from "../../data-models/photo.model";
 
 @Component({
@@ -10,13 +10,16 @@ import {PhotoModel} from "../../data-models/photo.model";
   styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit, OnDestroy {
+  public scrollCallback: any;
   public photoList: PhotoModel[] = [];
   private destroy$: Subject<boolean> = new Subject<boolean>();
+  private pageIndex: number = 1;
 
   constructor(
     private spinnerService: SpinnerService,
     private photoLibraryService: PhotoLibraryService
   ) {
+    this.scrollCallback = this.onScroll.bind(this);
   }
 
   ngOnInit(): void {
@@ -24,13 +27,26 @@ export class PhotosComponent implements OnInit, OnDestroy {
   }
 
   private initPhotoList(): void {
-    this.photoLibraryService.getPhotoList()
+    this.photoLibraryService.getPhotoList(this.pageIndex)
       .pipe(
         takeUntil(this.destroy$)
       )
       .subscribe(res => {
+        this.pageIndex++;
         this.photoList = res;
       })
+  }
+
+  public onScroll():Observable<PhotoModel[]> {
+    return this.photoLibraryService.getPhotoList(this.pageIndex).pipe(
+      tap((res: PhotoModel[]) => {
+        this.pageIndex++;
+        this.photoList.push(...res);
+      })
+    )
+      // .subscribe((res: PhotoModel[]) => {
+      //   this.photoList.push(...res);
+      // })
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,8 @@
-<section class="section-photos">
+<section class="section-photos"
+         appInfiniteScroller
+         [scrollCallback]="scrollCallback"
+         [immediateCallback]="false"
+>
   <app-photo *ngFor="let item of photoList"
              [photo]="item"
              [isVisibleBtnAddToFavorites]="true"
