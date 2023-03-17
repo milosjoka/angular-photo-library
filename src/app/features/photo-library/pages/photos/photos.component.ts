@@ -48,9 +48,6 @@ export class PhotosComponent implements OnInit, OnDestroy {
         this.spinnerService.stopSpinner();
       })
     )
-      // .subscribe((res: PhotoModel[]) => {
-      //   this.photoList.push(...res);
-      // })
   }
 
   public trackById(index: number, item: PhotoModel) {
