@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, of, throwError} from "rxjs";
+import {delay, Observable, of, throwError} from "rxjs";
 import {PhotoModel} from "../data-models/photo.model";
 
 @Injectable({
@@ -16,7 +16,10 @@ export class PhotoLibraryService {
   }
 
   public getPhotoList(pageIndex: number = 1, limit: number = 12): Observable<PhotoModel[]> {
-    return this.http.get<PhotoModel[]>(`${this.PICSUM_PHOTO_LIST_URL}?page=${pageIndex}&limit=${limit}`);
+    return this.http.get<PhotoModel[]>(`${this.PICSUM_PHOTO_LIST_URL}?page=${pageIndex}&limit=${limit}`)
+      .pipe(
+        delay(300)
+      );
   }
 
   public addPhotoToFavoritesAtLocalStorage(photo: PhotoModel): void {

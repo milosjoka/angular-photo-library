@@ -27,6 +27,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
   }
 
   private initPhotoList(): void {
+    this.spinnerService.startSpinner();
     this.photoLibraryService.getPhotoList(this.pageIndex)
       .pipe(
         takeUntil(this.destroy$)
@@ -34,14 +35,17 @@ export class PhotosComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.pageIndex++;
         this.photoList = res;
+        this.spinnerService.stopSpinner();
       })
   }
 
   public onScroll():Observable<PhotoModel[]> {
+    this.spinnerService.startSpinner();
     return this.photoLibraryService.getPhotoList(this.pageIndex).pipe(
       tap((res: PhotoModel[]) => {
         this.pageIndex++;
         this.photoList.push(...res);
+        this.spinnerService.stopSpinner();
       })
     )
       // .subscribe((res: PhotoModel[]) => {
