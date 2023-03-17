@@ -27,6 +27,10 @@ export class FavoritesComponent implements OnInit{
 
   }
 
+  public trackById(index: number, item: PhotoModel) {
+    return item ? item.id : null;
+  }
+
   private listenRemoveFromFavoritesEvent() {
     this.photoLibraryService.removeFromFavorites.subscribe(
       photo => {

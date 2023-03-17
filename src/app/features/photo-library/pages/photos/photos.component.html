@@ -3,7 +3,7 @@
          [scrollCallback]="scrollCallback"
          [immediateCallback]="false"
 >
-  <app-photo *ngFor="let item of photoList"
+  <app-photo *ngFor="let item of photoList; trackBy: trackById"
              [photo]="item"
              [isVisibleBtnAddToFavorites]="true"
   >

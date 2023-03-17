@@ -53,6 +53,10 @@ export class PhotosComponent implements OnInit, OnDestroy {
       // })
   }
 
+  public trackById(index: number, item: PhotoModel) {
+    return item ? item.id : null;
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
