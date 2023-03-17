@@ -13,7 +13,7 @@ export class FavoritesComponent implements OnInit{
 
   constructor(
     private photoLibraryService: PhotoLibraryService,
-    private snackBar: MatSnackBar,) {
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {

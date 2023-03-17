@@ -30,6 +30,21 @@
   }
 }
 
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem 1.6rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24rem;
+    height: 5rem;
+  }
+}
+
 .content {
   display: flex;
   border: 1px solid red;

@@ -1,1 +1,13 @@
-<p>single-photo works!</p>
+<section class="section-single-photo">
+  <mat-card class="photo-card" *ngIf="photo?.download_url">
+    <img mat-card-image [src]="photo.download_url" width="100%" height="auto" alt="">
+  </mat-card>
+</section>
+
+<section class="cta-button">
+  <div class="cta-button__item">
+    <a class="u-btn-size-md" mat-raised-button color="primary"
+       (click)="onRemoveFromFavorites()"
+    >Remove from Favorites</a>
+  </div>
+</section>

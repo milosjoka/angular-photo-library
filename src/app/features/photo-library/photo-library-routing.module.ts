@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {PhotosComponent} from "./pages/photos/photos.component";
 import {FavoritesComponent} from "./pages/favorites/favorites.component";
 import {SinglePhotoComponent} from "./pages/single-photo/single-photo.component";
+import {PhotoResolver} from "./resolvers/photo.resolver";
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'photos/:id',
-    component: SinglePhotoComponent
+    component: SinglePhotoComponent,
+    resolve: {photo: PhotoResolver}
   }
 ];
 
@@ -23,4 +25,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PhotoLibraryRoutingModule { }
+export class PhotoLibraryRoutingModule {
+}

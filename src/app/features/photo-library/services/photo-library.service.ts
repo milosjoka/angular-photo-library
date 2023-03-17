@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, of, throwError} from "rxjs";
 import {PhotoModel} from "../data-models/photo.model";
 
 @Injectable({
@@ -43,11 +43,26 @@ export class PhotoLibraryService {
   removePhotoFromFavoritesAtLocalStorage(photo: PhotoModel): void {
     const favoritesAsJsonString = localStorage.getItem(this.FAVORITES_LOCAL_STORAGE_KEY);
     if (favoritesAsJsonString !== null) {
-      let favorites = JSON.parse(favoritesAsJsonString);
-      const index = favorites.indexOf(photo);
-      favorites.splice(index, 1);
-      localStorage.setItem(this.FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(favorites));
+      let favorites: PhotoModel[] = JSON.parse(favoritesAsJsonString);
+      localStorage.setItem(this.FAVORITES_LOCAL_STORAGE_KEY, JSON.stringify(favorites.filter(item => item.id != photo.id)));
       this.removeFromFavorites.emit(photo);
     }
+  }
+
+  getPhotoById(id: string): Observable<PhotoModel> {
+    const favoritesAsJsonString = localStorage.getItem(this.FAVORITES_LOCAL_STORAGE_KEY);
+    if (favoritesAsJsonString !== null) {
+      let favorites: PhotoModel[] = JSON.parse(favoritesAsJsonString);
+      const photo = favorites.find(item => item.id == id);
+      if (photo) {
+        return of(photo);
+      }
+    }
+
+    return throwError(() => {
+      return {
+        message: 'The photo does not exist among favorites!'
+      }
+    });
   }
 }
